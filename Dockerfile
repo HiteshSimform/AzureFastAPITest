@@ -17,8 +17,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the entire app into the container (excluding __pycache__)
 COPY AzureFastAPITest/ /app/
 
-# Expose port 8000 to the host
-EXPOSE 8000
+# Expose port 80 (required by Azure)
+EXPOSE 80
 
 # Command to run the app using Uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
